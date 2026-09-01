@@ -12,7 +12,7 @@
     --bg: #f4f6f9;
     --card-bg: #ffffff;
     --text: #333333;
-    --border: #cccccc;
+    --border: #dddddd;
   }
 
   html { scroll-behavior: smooth; }
@@ -108,8 +108,8 @@
   .check-item {
     display: flex;
     flex-direction: column;
-    padding: 14px 0;
-    border-bottom: 1px solid #e2e8f0;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
     scroll-margin-top: 70px;
   }
 
@@ -132,55 +132,40 @@
   }
 
   .check-label input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-    margin-top: 2px;
-    cursor: pointer;
-    flex-shrink: 0;
+    width: 20px; height: 20px; margin-top: 2px; cursor: pointer;
   }
 
-  .check-text {
-    font-size: 1rem;
-    font-weight: 500;
-  }
+  .check-text { font-size: 0.95rem; }
 
   .check-label input[type="checkbox"]:checked + .check-text {
-    text-decoration: line-through;
-    color: #888888;
+    text-decoration: line-through; color: #888;
   }
 
   .sub-list {
     list-style: disc;
-    padding-left: 24px;
-    margin: 8px 0 4px 0;
-    font-size: 0.9rem;
-    color: #444444;
+    padding-left: 20px;
+    margin: 5px 0 0 0;
+    font-size: 0.88rem;
+    color: #555;
   }
 
-  .sub-list li { margin-bottom: 4px; }
+  .sub-list li { margin-bottom: 3px; }
 
-  /* 現場メモ入力欄デザイン修正 */
+  /* 現場メモ入力欄スタイル */
   .memo-area {
-    margin-top: 10px;
+    margin-top: 8px;
     width: 100%;
-  }
-
-  .memo-label {
-    font-size: 0.75rem;
-    color: var(--secondary);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 2px;
+    box-sizing: border-box;
   }
 
   .memo-input {
     width: 100%;
-    height: 48px;
-    padding: 8px;
+    min-height: 38px;
+    padding: 6px 10px;
     font-size: 0.85rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    background-color: #f8fafc;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fcfcfc;
     box-sizing: border-box;
     font-family: inherit;
     resize: vertical;
@@ -190,24 +175,22 @@
     outline: none;
     border-color: var(--secondary);
     background-color: #ffffff;
-    box-shadow: 0 0 5px rgba(0,102,204,0.3);
+    box-shadow: 0 0 4px rgba(0,102,204,0.2);
   }
 
   .btn-detail {
     background-color: #eef5fc;
     color: var(--secondary);
     border: 1px solid #cce0f5;
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: bold;
+    font-size: 0.8rem;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    flex-shrink: 0;
   }
 
   .btn-detail:hover { background-color: #d8e8f8; }
@@ -320,69 +303,69 @@
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">社員証（食堂カード・鍵付きホルダー装着を確認）</span></label>
           <a href="#manual-1" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-1" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-1" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-2">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">iPad（100%充電済みであることを確認）</span></label>
           <a href="#manual-2" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-2" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-2" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-3">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">黒ボールペン</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-3" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-3" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-4">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">タッチペン（充電済みであることを確認）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-4" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-4" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-5">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">黒マーカー</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-5" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-5" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-6">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ポケットサイズノート</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-6" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-6" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-7">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">安全靴（出勤場所やドックの変動に対応できるもの）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-7" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-7" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-8">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ネックストラップ（安全基準に適合した仕様であることを確認）</span></label>
           <a href="#manual-8" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-8" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-8" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-9">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">水筒（水分補給用）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-9" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-9" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-10">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">弁当（準備した場合）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-10" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-10" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-11">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">前日の勤務時に指示された特別持参品</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-11" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-11" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -395,51 +378,51 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">出勤打刻の実施</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-12" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-12" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-13">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">アルコールチェッカーによる測定と結果記録</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-13" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-13" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-14">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">体温の測定と健康状態の確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-14" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-14" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-15">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">服装の点検（安全靴・社員証・ネックストラップの正しく着用）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-15" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-15" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-16">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">iPadでAQUAにログインし、最新の規程類およびJV協定書の確認</span></label>
           <a href="#manual-16" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-16" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-16" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-17">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">MERSにログインし、当日の担当機材・ドック・ゾーン（DC/ZC体制）の確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-17" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-17" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-18">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">当日実施する作業オーダー（Routine Work / Non-routine Work）の内容確認</span></label>
           <a href="#manual-18" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-18" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-18" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-19">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">該当機材の技術指示書・情報の確認（MM, EO, ED, TSI, TI, TR, Bulletin）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-19" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-19" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -452,13 +435,13 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">当日の作業指示書（オーダー）の印刷および記載内容の目通し</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-20" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-20" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-21">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">個人工具箱の員数点検</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-21" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-21" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-22">
         <div class="item-main">
@@ -475,25 +458,25 @@
           </div>
           <a href="#manual-22" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-22" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-22" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-23">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">P-パン棚の管理表へ「日付・シフト・所属・氏名・使用場所」を記入</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-23" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-23" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-24">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">当日返却不可（長期借用）のP-パンに対し、養生テープで使用場所を記入・貼付</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-24" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-24" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-25">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">TOOL ROOM（工具室）にて専用工具（TOOL）の借用手続きと受取</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-25" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-25" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -507,31 +490,31 @@
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">チーフドックコントローラー（CDC）およびドックコントローラー（DC）からの連絡事項の聞き取り</span></label>
           <a href="#manual-26" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-26" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-26" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-27">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ゾーンコントローラー（ZC）からの作業分担指示の確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-27" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-27" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-28">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">指名された作業リーダーおよび作業グループメンバーの確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-28" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-28" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-29">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">KY（危険予知）活動の実施と危険箇所の共有</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-29" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-29" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-30">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">他企業・他部署の作業者との合図・連絡方法の確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-30" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-30" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -544,7 +527,7 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業エリア周辺のFOD（異物）除去および安全環境の確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-31" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-31" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-32">
         <div class="item-main">
@@ -559,7 +542,7 @@
           </div>
           <a href="#manual-32" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-32" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-32" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-33">
         <div class="item-main">
@@ -574,7 +557,7 @@
           </div>
           <a href="#manual-33" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-33" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-33" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-34">
         <div class="item-main">
@@ -588,7 +571,7 @@
           </div>
           <a href="#manual-34" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-34" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-34" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-35">
         <div class="item-main">
@@ -604,14 +587,14 @@
           </div>
           <a href="#manual-35" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-35" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-35" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-36">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業箇所の保護材・備品の準備（紙コップ, ウレタンマット, オイルプロッター, オイルドライ, ビニタイ, 台車）</span></label>
           <a href="#manual-36" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-36" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-36" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-37">
         <div class="item-main">
@@ -630,7 +613,7 @@
           </div>
           <a href="#manual-37" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-37" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-37" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -643,7 +626,7 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業基準書（PART II, SRM, FIM, TSM, 機械別整備要綱等）の指示手順の遵守</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-38" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-38" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-39">
         <div class="item-main">
@@ -657,20 +640,20 @@
           </div>
           <a href="#manual-39" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-39" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-39" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-40">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">オイル缶開封時のルール実行（一度開封したオイル缶は保管棚に戻さない）</span></label>
           <a href="#manual-40" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-40" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-40" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-41">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業途中で不具合（Non-routine Work）を発見した場合のZC/DCへの即時報告</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-41" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-41" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -683,13 +666,13 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業エリアのFOD（工具・部品・ゴミ）の目視確認および取り除き</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-42" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-42" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-43">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">オレンジウエスの枚数カウント（持ち込み数10枚と一致することの確認）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-43" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-43" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-44">
         <div class="item-main">
@@ -705,20 +688,20 @@
           </div>
           <a href="#manual-44" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-44" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-44" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-45">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">溶剤ボトルの処理（余ったMPK, IPA, ナフサを各ドックの廃油カートへ廃棄）</span></label>
           <a href="#manual-45" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-45" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-45" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-46">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">オイラーの残液抜き取り（オイラー内を空にすることの確認）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-46" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-46" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -731,20 +714,20 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">施工箇所の自主検査（完成状態の確認）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-47" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-47" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-48">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">検査員・確認主任者（AE / LAE）による受領検査・検査・領収検査の受検（該当作業時）</span></label>
           <a href="#manual-48" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-48" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-48" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-49">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">MERSにアクセスし、オーダーコンファメーション画面にて電子署名（サインオン）の実行</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-49" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-49" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -757,38 +740,38 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">借用した専用工具（TOOL）の清掃、員数確認、TOOL ROOMへの返却</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-50" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-50" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-51">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">借用した有機溶剤ボトルの危険物庫への返却および借用台帳への返却日記入</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-51" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-51" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-52">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">借用したP-パンの返却およびP-パン管理表への返却記入</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-52" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-52" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-53">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">終業ブリーフィングへの出席</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-53" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-53" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-54">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ZC/DCへの作業完了報告および未完了作業（残作業）の引き継ぎ申し送り</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-54" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-54" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-55">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">本日のヒヤリハット・不具合事象（CAT-I, CAT-II等）の情報共有および確認</span></label>
           <a href="#manual-55" class="btn-detail">📖 詳細</a>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-55" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-55" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -801,25 +784,25 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">個人工具箱の施錠および定位置への収納</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-56" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-56" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-57">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">iPadを充電器へ接続（翌日出勤時の100%充電確保のため）</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-57" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-57" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-58">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">個人ロッカーの施錠確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-58" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-58" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-59">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">退勤打刻の実施</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-59" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-59" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -832,13 +815,13 @@
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">体調確認および十分な睡眠の確保</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-60" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-60" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
       <li class="check-item" id="item-61">
         <div class="item-main">
           <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">翌日の出勤持ち物（社員証・鍵・文房具等）の再確認</span></label>
         </div>
-        <div class="memo-area"><span class="memo-label">📝 現場メモ（自動保存）</span><textarea class="memo-input" data-id="memo-61" placeholder="メモを入力..."></textarea></div>
+        <div class="memo-area"><textarea class="memo-input" data-id="memo-61" placeholder="現場メモ入力欄（自動永久保存）..."></textarea></div>
       </li>
     </ul>
   </div>
@@ -1199,27 +1182,27 @@
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
 
-    // チェック状態の復元と保存
+    // チェックボックスの状態復元と保存
     checkboxes.forEach((cb, index) => {
-      const saved = localStorage.getItem(`dock_v6_chk_${index}`);
+      const saved = localStorage.getItem(`dock_v5_chk_${index}`);
       if (saved === 'true') { cb.checked = true; }
 
       cb.addEventListener('change', () => {
-        localStorage.setItem(`dock_v6_chk_${index}`, cb.checked);
+        localStorage.setItem(`dock_v5_chk_${index}`, cb.checked);
         updateProgress();
       });
     });
 
-    // 現場メモの復元と自動保存
+    // メモ欄の入力内容復元と永久自動保存
     memoInputs.forEach((input) => {
       const memoId = input.getAttribute('data-id');
-      const savedMemo = localStorage.getItem(`dock_memo_v6_${memoId}`);
+      const savedMemo = localStorage.getItem(`dock_memo_${memoId}`);
       if (savedMemo) {
         input.value = savedMemo;
       }
 
       input.addEventListener('input', () => {
-        localStorage.setItem(`dock_memo_v6_${memoId}`, input.value);
+        localStorage.setItem(`dock_memo_${memoId}`, input.value);
       });
     });
 
@@ -1231,11 +1214,12 @@
       progressText.textContent = percent + '%';
     };
 
+    // チェック状態のみ解除（入力したメモは消えずに残ります）
     window.resetChecks = function() {
-      if (confirm('チェックマークのみを解除しますか？\n※入力された「現場メモ」は消えずに保持されます。')) {
+      if (confirm('チェックマークのみを一括解除しますか？\n（入力した現場メモは消えずに保持されます）')) {
         checkboxes.forEach((cb, index) => {
           cb.checked = false;
-          localStorage.removeItem(`dock_v6_chk_${index}`);
+          localStorage.removeItem(`dock_v5_chk_${index}`);
         });
         updateProgress();
       }

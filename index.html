@@ -15,9 +15,7 @@
     --border: #dddddd;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -29,7 +27,6 @@
     padding-bottom: 80px;
   }
 
-  /* ヘッダー・進捗バー */
   header {
     position: sticky;
     top: 0;
@@ -50,17 +47,14 @@
     gap: 10px;
   }
 
-  h1 {
-    font-size: 1.1rem;
-    margin: 0;
-  }
+  h1 { font-size: 1.1rem; margin: 0; }
 
   .progress-container {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
   }
 
   .progress-bar-bg {
@@ -78,11 +72,7 @@
     transition: width 0.3s ease;
   }
 
-  .progress-text {
-    font-size: 0.85rem;
-    font-weight: bold;
-    min-width: 45px;
-  }
+  .progress-text { font-size: 0.85rem; font-weight: bold; min-width: 45px; }
 
   .btn-reset {
     background: transparent;
@@ -94,12 +84,7 @@
     cursor: pointer;
   }
 
-  /* コンテナ */
-  .container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 15px;
-  }
+  .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
 
   .section-card {
     background: var(--card-bg);
@@ -118,12 +103,7 @@
     margin-bottom: 15px;
   }
 
-  /* リスト項目 */
-  .checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  .checklist { list-style: none; padding: 0; margin: 0; }
 
   .check-item {
     display: flex;
@@ -132,12 +112,10 @@
     padding: 10px 0;
     border-bottom: 1px solid #f0f0f0;
     gap: 10px;
-    scroll-margin-top: 70px; /* ジャンプ戻り時のヘッダー被り防止 */
+    scroll-margin-top: 70px;
   }
 
-  .check-item:last-child {
-    border-bottom: none;
-  }
+  .check-item:last-child { border-bottom: none; }
 
   .check-label {
     display: flex;
@@ -148,22 +126,27 @@
   }
 
   .check-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-top: 2px;
-    cursor: pointer;
+    width: 20px; height: 20px; margin-top: 2px; cursor: pointer;
   }
 
-  .check-text {
-    font-size: 0.95rem;
-  }
+  .check-text { font-size: 0.95rem; }
 
   .check-label input[type="checkbox"]:checked + .check-text {
-    text-decoration: line-through;
-    color: #888;
+    text-decoration: line-through; color: #888;
   }
 
-  /* ジャンプボタン */
+  .sub-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 5px 0 0 0;
+    font-size: 0.88rem;
+    color: #555;
+  }
+
+  .sub-list li {
+    margin-bottom: 3px;
+  }
+
   .btn-detail {
     background-color: #eef5fc;
     color: var(--secondary);
@@ -177,14 +160,10 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    transition: background 0.2s;
   }
 
-  .btn-detail:hover {
-    background-color: #d8e8f8;
-  }
+  .btn-detail:hover { background-color: #d8e8f8; }
 
-  /* 詳細マニュアルエリア */
   .manual-header {
     background-color: var(--primary);
     color: white;
@@ -199,7 +178,7 @@
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 25px;
-    scroll-margin-top: 70px; /* ジャンプ時のヘッダー被り防止 */
+    scroll-margin-top: 70px;
   }
 
   .manual-card h3 {
@@ -224,9 +203,7 @@
     text-decoration: none;
   }
 
-  .btn-back:hover {
-    background-color: #e0e0e0;
-  }
+  .btn-back:hover { background-color: #e0e0e0; }
 
   .detail-content {
     font-size: 0.9rem;
@@ -236,14 +213,8 @@
     margin-top: 10px;
   }
 
-  .detail-content ul {
-    margin: 0;
-    padding-left: 20px;
-  }
-
-  .detail-content li {
-    margin-bottom: 6px;
-  }
+  .detail-content ul { margin: 0; padding-left: 20px; }
+  .detail-content li { margin-bottom: 6px; }
 
   .badge {
     display: inline-block;
@@ -258,6 +229,7 @@
   .bg-blue { background-color: #3182ce; }
   .bg-yellow { background-color: #d69e2e; }
   .bg-black { background-color: #2d3748; }
+  .bg-gray { background-color: #718096; }
 </style>
 </head>
 <body>
@@ -266,9 +238,7 @@
   <div class="header-content">
     <h1>✈️ ドック整備士 1日完全網羅チェックリスト</h1>
     <div class="progress-container">
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progressBar"></div>
-      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
       <div class="progress-text" id="progressText">0%</div>
       <button class="btn-reset" onclick="resetChecks()">リセット</button>
     </div>
@@ -277,7 +247,7 @@
 
 <div class="container">
 
-  <!-- チェックリストエリア -->
+  <!-- 1. 出勤前（自宅・移動中） -->
   <div class="section-card">
     <h2>1. 出勤前（自宅・移動中）</h2>
     <ul class="checklist">
@@ -290,105 +260,342 @@
         <a href="#manual-2" class="btn-detail">📖 詳細</a>
       </li>
       <li class="check-item" id="item-3">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">筆記具一式（黒ボールペン、タッチペン充電済み、蛍光マーカー、ポケットノート）</span></label>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">黒ボールペン</span></label>
       </li>
       <li class="check-item" id="item-4">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">安全靴・ネックストラップ（安全基準適合を確認）</span></label>
-        <a href="#manual-4" class="btn-detail">📖 詳細</a>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">タッチペン（充電済みであることを確認）</span></label>
+      </li>
+      <li class="check-item" id="item-5">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">蛍光マーカー</span></label>
+      </li>
+      <li class="check-item" id="item-6">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ポケットサイズノート</span></label>
+      </li>
+      <li class="check-item" id="item-7">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">安全靴（出勤場所やドックの変動に対応できるもの）</span></label>
+      </li>
+      <li class="check-item" id="item-8">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ネックストラップ（安全基準に適合した仕様であることを確認）</span></label>
+        <a href="#manual-8" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-9">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">水筒（水分補給用）</span></label>
+      </li>
+      <li class="check-item" id="item-10">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">弁当（準備した場合）</span></label>
+      </li>
+      <li class="check-item" id="item-11">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">前日の勤務時に指示された特別持参品</span></label>
       </li>
     </ul>
   </div>
 
+  <!-- 2. 出勤〜業務開始前 -->
   <div class="section-card">
     <h2>2. 出勤〜業務開始前（1時間前到着）</h2>
     <ul class="checklist">
-      <li class="check-item" id="item-5">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">出勤打刻、アルコール測定、体温測定・健康確認</span></label>
-      </li>
-      <li class="check-item" id="item-6">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">iPadでAQUA・MERS・技術情報（EO/ED/TSI/Bulletin等）の確認</span></label>
-        <a href="#manual-6" class="btn-detail">📖 詳細</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="section-card">
-    <h2>3. ブリーフィング前（工具・P-パン受取）</h2>
-    <ul class="checklist">
-      <li class="check-item" id="item-7">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業エリアに応じたP-パン（パーツパン）の選定・管理表記入</span></label>
-        <a href="#manual-7" class="btn-detail">📖 詳細</a>
-      </li>
-      <li class="check-item" id="item-8">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">TOOL ROOMにて専用工具（TOOL）の手配・受取</span></label>
-      </li>
-    </ul>
-  </div>
-
-  <div class="section-card">
-    <h2>4. 朝の全体・ゾーンブリーフィング</h2>
-    <ul class="checklist">
-      <li class="check-item" id="item-9">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">CDC/DC/ZC指示の受領・作業グループ・KY（危険予知）活動の共有</span></label>
-        <a href="#manual-9" class="btn-detail">📖 詳細</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="section-card">
-    <h2>5. 作業直前（設備・資材の点検・手配）</h2>
-    <ul class="checklist">
-      <li class="check-item" id="item-10">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業エリアのFOD確認およびスタンド類（メカニカルロック/CRS/大扉）の点検</span></label>
-        <a href="#manual-10" class="btn-detail">📖 詳細</a>
-      </li>
-      <li class="check-item" id="item-11">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">有機溶剤の準備（危険物庫にて手配・色別確認・台帳記入）</span></label>
-        <a href="#manual-11" class="btn-detail">📖 詳細</a>
-      </li>
       <li class="check-item" id="item-12">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">化学薬品・スプレー・PARTSテープ類のTAG・有効期限確認</span></label>
-        <a href="#manual-12" class="btn-detail">📖 詳細</a>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">出勤打刻の実施</span></label>
       </li>
       <li class="check-item" id="item-13">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">油脂・オイル・専用カート・オイラーの確認</span></label>
-        <a href="#manual-13" class="btn-detail">📖 詳細</a>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">アルコールチェッカーによる測定と結果記録</span></label>
       </li>
       <li class="check-item" id="item-14">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ウエス類・軍手・靴カバー・保護具の選定（オレンジウエス10枚管理）</span></label>
-        <a href="#manual-14" class="btn-detail">📖 詳細</a>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">体温の測定と健康状態の確認</span></label>
       </li>
-    </ul>
-  </div>
-
-  <div class="section-card">
-    <h2>6. 作業中（整備作業・安全遵守）</h2>
-    <ul class="checklist">
       <li class="check-item" id="item-15">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業基準書（PART II, SRM等）の遵守および溶剤取扱注意実行</span></label>
-        <a href="#manual-15" class="btn-detail">📖 詳細</a>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">服装の点検（安全靴・社員証・ネックストラップの正しく着用）</span></label>
       </li>
-    </ul>
-  </div>
-
-  <div class="section-card">
-    <h2>7. 作業直後〜帰宅（片付け・ゴミ分別・署名）</h2>
-    <ul class="checklist">
       <li class="check-item" id="item-16">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">使用済みウエス・軍手の分別廃棄および廃油処理</span></label>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">iPadでAQUAにログインし、最新の規程類およびJV協定書の確認</span></label>
         <a href="#manual-16" class="btn-detail">📖 詳細</a>
       </li>
       <li class="check-item" id="item-17">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">MERSでの電子署名（サインオン）の実行</span></label>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">MERSにログインし、当日の担当機材・ドック・ゾーン（DC/ZC体制）の確認</span></label>
       </li>
       <li class="check-item" id="item-18">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">工具・P-パン・溶剤ボトルの返却手配</span></label>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">当日実施する作業オーダー（Routine Work / Non-routine Work）の内容確認</span></label>
+        <a href="#manual-18" class="btn-detail">📖 詳細</a>
       </li>
       <li class="check-item" id="item-19">
-        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">iPadの充電器接続および退勤打刻</span></label>
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">該当機材の技術指示書・情報の確認（EO, ED, TSI, TI, TR, Bulletin）</span></label>
       </li>
     </ul>
   </div>
+
+  <!-- 3. ブリーフィング前 -->
+  <div class="section-card">
+    <h2>3. ブリーフィング前</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-20">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">当日の作業指示書（オーダー）の印刷および記載内容の目通し</span></label>
+      </li>
+      <li class="check-item" id="item-21">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">個人工具箱の員数点検</span></label>
+      </li>
+      <li class="check-item" id="item-22">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業エリアに応じたP-パン（パーツパン）の選定と借用手配</span></label>
+          <ul class="sub-list">
+            <li>赤色P-パン（CABIN内以外の一般整備用）</li>
+            <li>青色・黄色・灰色P-パン（整備作業全般用）</li>
+            <li>半透明P-パン（羽田：CABIN内の整備作業用）</li>
+            <li>黄色P-パン（成田：CABIN内の整備作業用）</li>
+            <li>黒色・導電性P-パン（FUEL TANK内作業用）</li>
+            <li>濃灰色・大サイズP-パン（大物TOOL・パーツ用）</li>
+          </ul>
+        </div>
+        <a href="#manual-22" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-23">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">P-パン棚の管理表へ「日付・シフト・所属・氏名・使用場所」を記入</span></label>
+      </li>
+      <li class="check-item" id="item-24">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">当日返却不可（長期借用）のP-パンに対し、養生テープで使用場所を記入・貼付</span></label>
+      </li>
+      <li class="check-item" id="item-25">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">TOOL ROOM（工具室）にて専用工具（TOOL）の借用手続きと受取</span></label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4. 朝の全体・ゾーンブリーフィング -->
+  <div class="section-card">
+    <h2>4. 朝の全体・ゾーンブリーフィング</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-26">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">チーフドックコントローラー（CDC）およびドックコントローラー（DC）からの連絡事項の聞き取り</span></label>
+        <a href="#manual-26" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-27">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ゾーンコントローラー（ZC）からの作業分担指示の確認</span></label>
+      </li>
+      <li class="check-item" id="item-28">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">指名された作業リーダーおよび作業グループメンバーの確認</span></label>
+      </li>
+      <li class="check-item" id="item-29">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">KY（危険予知）活動の実施と危険箇所の共有</span></label>
+      </li>
+      <li class="check-item" id="item-30">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">他企業・他部署の作業者との合図・連絡方法の確認</span></label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 5. 作業直前 -->
+  <div class="section-card">
+    <h2>5. 作業直前（作業場所・設備・資材の点検）</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-31">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業エリア周辺のFOD（異物）除去および安全環境の確認</span></label>
+      </li>
+      <li class="check-item" id="item-32">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">使用するスタンドの安全点検</span></label>
+          <ul class="sub-list">
+            <li>移動式スタンド：昇降後、メカニカルロックが「LOCK POSI」に確実に噛み合っていることの目視確認</li>
+            <li>CARGO ACCESS STAND：CARGO DOORとの隙間がないことの確認、機体接近時の監視員配置</li>
+            <li>CRS車：安全ベルトの装着、高所操作時の安全確認</li>
+            <li>格納庫大扉：CDCの許可確認、監視員の配置、大扉移動範囲内（隙間）に身体を絶対に入れないことの確認</li>
+          </ul>
+        </div>
+        <a href="#manual-32" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-33">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">有機溶剤の準備（危険物庫にて借用手配）</span></label>
+          <ul class="sub-list">
+            <li>ナフサ（青色ボトル）</li>
+            <li>IPA（黄色ボトル）</li>
+            <li>MPK（赤色ボトル）</li>
+            <li>危険物庫の借用台帳に「借用日・シフト・所属・氏名・作業場所・返却予定日」を記入</li>
+          </ul>
+        </div>
+        <a href="#manual-33" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-34">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">化学薬品・副資材のタグ・期限確認</span></label>
+          <ul class="sub-list">
+            <li>スプレー類（急冷スプレー, WD-40, STEP21, ダイチェックスプレー, LPS3, LEAK DETECTOR, ラッカースプレー, のりはがし, ジョンソンクルー, 青ニススプレー, イカリエアクリーン）の「SERVICEABLE PARTS TAG」添付および有効期限の目視確認</li>
+            <li>PARTSテープ類（パーマセルテープ, アルミテープ, 両面テープ, オアコンテープ, ガラステープ, テフロンテープ）の「SERVICEABLE PARTS TAG」添付確認</li>
+            <li>整備作業補助テープ（スコッチテープ, マスキングテープ, 養生テープ, ダンプロンテープ, ビニールテープ）の準備</li>
+          </ul>
+        </div>
+        <a href="#manual-34" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-35">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">油脂・オイルの準備（指定銘柄の確認）</span></label>
+          <ul class="sub-list">
+            <li>エンジン/IDG用オイル（BP TURBO OIL 2380, ESSO TURBO OIL 2380, BP TURBO OIL 2197, ESSO TURBO OIL 2197, MOBIL JET OIL II）の確認</li>
+            <li>作動油（AERO SHELL FLUID 3, AERO SHELL FLUID 41, AERO SHELL FLUID 12, Hydraunycoil FH6 AW, SKYDROL LD4）の確認</li>
+            <li>油脂類（ASG7, ASG14, ASG16, ASG17, ASG22, ASG33, ROYCO11MS, SHC100, ASG33MS）の確認</li>
+            <li>専用カートの確認（SKYDROL LD4用、FH6 AW用、HYJET V用を間違えないこと）</li>
+            <li>オイラー（容器の色が注油指定オイルと一致していることの確認）</li>
+          </ul>
+        </div>
+        <a href="#manual-35" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-36">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業箇所の保護材・備品の準備（紙コップ, ウレタンマット, オイルプロッター, オイルドライ, ビニタイ, 台車）</span></label>
+        <a href="#manual-36" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-37">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ウエス・手袋・保護具の選定</span></label>
+          <ul class="sub-list">
+            <li>レンタルウエス（一般作業用）</li>
+            <li>ネルウエス（CABIN内用）</li>
+            <li>フィルターウエス（サービシング時の流体ろ過用）</li>
+            <li>白ウエス（ペイント・シーラント用）</li>
+            <li>オレンジウエス（ENG, APU, FUEL TANK用：10枚セットの袋に入っていることの確認）</li>
+            <li>軍手（普通サイズ、小サイズ）</li>
+            <li>靴カバー（CABIN内、WING上面作業用）</li>
+            <li>保護メガネ・防塵マスク・有機溶剤用防毒マスク（必要作業時）</li>
+          </ul>
+        </div>
+        <a href="#manual-37" class="btn-detail">📖 詳細</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 6. 作業中 -->
+  <div class="section-card">
+    <h2>6. 作業中（整備作業・安全遵守）</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-38">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業基準書（PART II, SRM, FIM, TSM, 機械別整備要綱等）の指示手順の遵守</span></label>
+      </li>
+      <li class="check-item" id="item-39">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">溶剤使用時の遵守事項実行</span></label>
+          <ul class="sub-list">
+            <li>使用時以外の容器フタ閉鎖</li>
+            <li>局所排気装置の稼働または通風による換気維持</li>
+            <li>MPKおよびCEE-BEE使用時、コロガードペイント（WING, H-STAB）やプラスチック（CABIN内）への飛散防止養生の徹底</li>
+          </ul>
+        </div>
+        <a href="#manual-39" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-40">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">オイル缶開封時のルール実行（一度開封したオイル缶は保管棚に戻さない）</span></label>
+        <a href="#manual-40" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-41">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業途中で不具合（Non-routine Work）を発見した場合のZC/DCへの即時報告</span></label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 7. 作業直後 -->
+  <div class="section-card">
+    <h2>7. 作業直後（片付け・ゴミ分別・清掃）</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-42">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">作業エリアのFOD（工具・部品・ゴミ）の目視確認および取り除き</span></label>
+      </li>
+      <li class="check-item" id="item-43">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">オレンジウエスの枚数カウント（持ち込み数10枚と一致することの確認）</span></label>
+      </li>
+      <li class="check-item" id="item-44">
+        <div style="width:100%;">
+          <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">使用済みウエス・軍手の分別廃棄</span></label>
+          <ul class="sub-list">
+            <li>有機溶剤が付着したウエス・軍手 ➔ 各ドック配置の金属製収納BOXへ返却</li>
+            <li>グリス・シーラント・金屑が付着したウエス・軍手 ➔ 各ドック配置のドラム缶へ廃棄</li>
+            <li>ネルウエス（羽田） ➔ TOOL ROOMの洗濯行きBOXへ返却</li>
+            <li>ネルウエス（成田） ➔ 一般ごみ箱へ廃棄</li>
+            <li>ペイント・シーラント・切り粉が付着したレンタルウエス ➔ 廃棄箱へ回収</li>
+          </ul>
+        </div>
+        <a href="#manual-44" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-45">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">溶剤ボトルの処理（余ったMPK, IPA, ナフサを各ドックの廃油カートへ廃棄）</span></label>
+        <a href="#manual-45" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-46">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">オイラーの残液抜き取り（オイラー内を空にすることの確認）</span></label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 8. 作業完了・帳票記録 -->
+  <div class="section-card">
+    <h2>8. 作業完了・帳票記録</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-47">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">施工箇所の自主検査（完成状態の確認）</span></label>
+      </li>
+      <li class="check-item" id="item-48">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">検査員・確認主任者（AE / LAE）による受領検査・検査・領収検査の受検（該当作業時）</span></label>
+        <a href="#manual-48" class="btn-detail">📖 詳細</a>
+      </li>
+      <li class="check-item" id="item-49">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">MERSにアクセスし、オーダーコンファメーション画面にて電子署名（サインオン）の実行</span></label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 9. 終業ブリーフィング前後 -->
+  <div class="section-card">
+    <h2>9. 終業ブリーフィング前後</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-50">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">借用した専用工具（TOOL）の清掃、員数確認、TOOL ROOMへの返却</span></label>
+      </li>
+      <li class="check-item" id="item-51">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">借用した有機溶剤ボトルの危険物庫への返却および借用台帳への返却日記入</span></label>
+      </li>
+      <li class="check-item" id="item-52">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">借用したP-パンの返却およびP-パン管理表への返却記入</span></label>
+      </li>
+      <li class="check-item" id="item-53">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">終業ブリーフィングへの出席</span></label>
+      </li>
+      <li class="check-item" id="item-54">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">ZC/DCへの作業完了報告および未完了作業（残作業）の引き継ぎ申し送り</span></label>
+      </li>
+      <li class="check-item" id="item-55">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">本日のヒヤリハット・不具合事象（CAT-I, CAT-II等）の情報共有および確認</span></label>
+        <a href="#manual-55" class="btn-detail">📖 詳細</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 10. 退勤前 -->
+  <div class="section-card">
+    <h2>10. 退勤前（着替え・整理）</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-56">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">個人工具箱の施錠および定位置への収納</span></label>
+      </li>
+      <li class="check-item" id="item-57">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">iPadを充電器へ接続（翌日出勤時の100%充電確保のため）</span></label>
+      </li>
+      <li class="check-item" id="item-58">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">個人ロッカーの施錠確認</span></label>
+      </li>
+      <li class="check-item" id="item-59">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">退勤打刻の実施</span></label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 11. 帰宅後 -->
+  <div class="section-card">
+    <h2>11. 帰宅後（翌日への備え）</h2>
+    <ul class="checklist">
+      <li class="check-item" id="item-60">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">体調確認および十分な睡眠の確保</span></label>
+      </li>
+      <li class="check-item" id="item-61">
+        <label class="check-label"><input type="checkbox" class="chk"><span class="check-text">翌日の出勤持ち物（社員証・鍵・文房具等）の再確認</span></label>
+      </li>
+    </ul>
+  </div>
+
 
   <!-- 詳細マニュアルエリア -->
   <div class="manual-header">
@@ -396,11 +603,10 @@
   </div>
 
   <div class="manual-card" id="manual-1">
-    <h3>社員証・カード類 <a href="#item-1" class="btn-back">↩️ リストへ戻る</a></h3>
+    <h3>社員証・食堂カード・鍵 <a href="#item-1" class="btn-back">↩️ リストへ戻る</a></h3>
     <div class="detail-content">
       <ul>
-        <li>社員証は紛失防止のため「鍵付きホルダー」に確実に装着する。</li>
-        <li>食堂カード等の付随カード類がセットされていることを確認する。</li>
+        <li>社員証・食堂カードは紛失防止のため「鍵付きホルダー」に確実に装着する。</li>
       </ul>
     </div>
   </div>
@@ -415,8 +621,8 @@
     </div>
   </div>
 
-  <div class="manual-card" id="manual-4">
-    <h3>安全靴・ネックストラップ <a href="#item-4" class="btn-back">↩️ リストへ戻る</a></h3>
+  <div class="manual-card" id="manual-8">
+    <h3>安全靴・ネックストラップ <a href="#item-8" class="btn-back">↩️ リストへ戻る</a></h3>
     <div class="detail-content">
       <ul>
         <li>安全靴：出勤ドックや作業内容の変動に対応できる適切なものを着用。</li>
@@ -425,115 +631,222 @@
     </div>
   </div>
 
-  <div class="manual-card" id="manual-6">
-    <h3>システム・技術情報の確認手順 <a href="#item-6" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>AQUA</b>：最新のJV協定書および各種整備規程類の改定情報を確認。</li>
-        <li><b>MERS</b>：当日の担当機材、ドック、DC/ZC体制および割り当てられたオーダー（Routine/Non-routine）を確認。</li>
-        <li><b>技術情報</b>：EO（改修指示）、ED（偏務指示）、TSI（技術注意）、TI/TR（不具合情報）、Bulletin（規程補足）の該当有無を目通し。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-7">
-    <h3>P-パン（パーツパン）の選定・管理基準 <a href="#item-7" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><span class="badge bg-red">赤色</span> CABIN内以外の整備作業全般用（羽田・成田共通）</li>
-        <li><span class="badge bg-blue">青・黄・灰</span> 整備作業全般用（羽田） / 青色（成田全般用）</li>
-        <li><span class="badge bg-yellow">半透明</span> CABIN内整備用（羽田） / 黄色（成田CABIN用）</li>
-        <li><span class="badge bg-black">黒色（導電性）</span> FUEL TANK内作業専用（TOOL ROOM保管）</li>
-        <li><b>記入事項</b>：管理表に「日付・シフト・所属・氏名・使用場所」を記入。当日返却できない（長期借用）場合は養生テープで使用場所等を明記すること。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-9">
-    <h3>整備実施体制（CDC/DC/ZC） <a href="#item-9" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>チーフドックコントローラー（CDC）</b>：作業場全体の工程・安全管理および大扉等の総括。</li>
-        <li><b>ドックコントローラー（DC）</b>：各ドックの工程・安全・機材管理。</li>
-        <li><b>ゾーンコントローラー（ZC）</b>：担当ゾーンの作業進捗、DEFECT承認、作業アサイン。</li>
-        <li><b>KY活動</b>：本日の作業における危険ポイント（高所・重量物・化学物質）をグループ内で共有。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-10">
-    <h3>設備・スタンド類の安全点検 <a href="#item-10" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>移動式スタンド</b>：昇降後は不意の下降を防ぐため、メカニカルロックが確実に「LOCK POSI」に入っていることを目視点検する。</li>
-        <li><b>CARGO ACCESS STAND</b>：CARGO DOORとの間に隙間ができないようセット。機体接触防止のため移動時は必ず監視員を配置。</li>
-        <li><b>CRS車</b>：高所作業に該当するため、運転・操作時は確実に安全ベルトを着用する。</li>
-        <li><b>格納庫大扉</b>：操作はCDCまたは許可者のみ。移動範囲内に体を絶対に入れない（特に隙間）。視認性が悪い場合は監視員を配置。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-11">
-    <h3>有機溶剤の手配・管理ルール <a href="#item-11" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>ボトル色分け</b>：ナフサ＝<span class="badge bg-blue">青色</span>、IPA＝<span class="badge bg-yellow">黄色</span>、MPK＝<span class="badge bg-red">赤色</span></li>
-        <li><b>借用手続き</b>：危険物庫の借用台帳に「借用日・シフト・所属・氏名・作業場所・返却予定日」を記入する。</li>
-        <li><b>廃油処理</b>：余った溶剤はボトル内に放置せず、各ドックの廃油カートへ廃棄する。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-12">
-    <h3>スプレー・テープ類の確認基準 <a href="#item-12" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>TAG確認</b>：各種スプレーおよびPARTSテープ（CA材：パーマセル、アルミ、両面、オアコン、ガラス、テフロン等）には、一点一様に「SERVICEABLE PARTS TAG」が添付されていること、および有効期限内であることを確認。</li>
-        <li><b>作業補助テープ</b>：スコッチ、マスキング、養生、ダンプロン、ビニールテープ等は運航機体に装着不可（作業完了時に必ず除去）。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-13">
-    <h3>オイル・グリース・専用カートの取扱 <a href="#item-13" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>オイル缶</b>：一度開封したオイル缶（1QT）は再保管不可。未使用缶のみ箱に戻す。</li>
-        <li><b>専用カート</b>：SKYDROL LD4用、FH6 AW用、HYJET V用など作動油ごとにカートが厳密に分かれているため間違えないこと。</li>
-        <li><b>オイラー</b>：容器の色と中身（指定オイル）が一致していることを確認。使用後は必ず空にする。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-14">
-    <h3>ウエス・保護具の選定基準 <a href="#item-14" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>オレンジウエス</b>：ENG, APU, FUEL TANKなど特定エリア用。置き忘れ（FOD）防止のためTOOL ROOMで10枚セットで員数管理。</li>
-        <li><b>ネルウエス</b>：CABIN内のクリーニング用。</li>
-        <li><b>靴カバー</b>：CABIN内やWING上面の靴汚れ防止用。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="manual-card" id="manual-15">
-    <h3>作業中の遵守事項 <a href="#item-15" class="btn-back">↩️ リストへ戻る</a></h3>
-    <div class="detail-content">
-      <ul>
-        <li><b>溶剤取扱</b>：使用時以外は必ずフタをする。吸入防止のため換気を行う。MPKやCEE-BEEはコロガードペイント（翼）やプラスチック（客室）を侵すため養生を徹底する。</li>
-        <li><b>不具合（Non-routine）発生時</b>：自己判断せず直ちにZC/DCへ報告する。</li>
-      </ul>
-    </div>
-  </div>
-
   <div class="manual-card" id="manual-16">
-    <h3>廃棄物・使用済み資材の分別ルール <a href="#item-16" class="btn-back">↩️ リストへ戻る</a></h3>
+    <h3>規程類・JV協定確認 <a href="#item-16" class="btn-back">↩️ リストへ戻る</a></h3>
     <div class="detail-content">
       <ul>
-        <li><b>可燃性溶剤付着ウエス・軍手</b> ➔ 各ドックの「金属製収納BOX」へ回収・返却。</li>
-        <li><b>グリス・シーラント・金屑付着</b> ➔ 再生不可のため各ドックの「ドラム缶」へ廃棄。</li>
-        <li><b>ネルウエス</b> ➔ 羽田はTOOL ROOMの「洗濯行きBOX」、成田は「一般ごみ」。</li>
-        <li><b>オレンジウエス</b> ➔ 10枚すべて揃っているか員数カウントの上、袋に入れて返却。</li>
+        <li><b>AQUAの確認</b>：[規程類 1] ➔ JV欄 [JV協定書] ➔ [2 共同事業体における指揮命令の基本的な考え方] 等を参照し、指示体系を確認する。</li>
+        <li>2023年6月より業務管理者の配置は停止されている。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-18">
+    <h3>作業分類および技術指示書 <a href="#item-18" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>作業分類の把握</b>：
+          <ul>
+            <li>通常作業（Regular Work）：定例作業（Routine Work）および非定例作業（Non-routine Work）。</li>
+            <li>特別作業（Project Work）：改修・大修理等。</li>
+          </ul>
+        </li>
+        <li><b>技術情報の確認</b>：EO（改修指示）、ED（偏務指示）、TSI（技術注意）、TI/TR（不具合情報）、Bulletin（規程補足）の該当有無を目通し。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-22">
+    <h3>P-パン（パーツパン）の種類と管理基準 <a href="#item-22" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>羽田作業場における種類と保管場所</b>：
+          <ul>
+            <li><span class="badge bg-red">赤色</span> CABIN内以外の整備作業全般（ANA/BTC共通） / 各DOCK・MAM SHOP</li>
+            <li><span class="badge bg-yellow">半透明</span> CABIN内の整備作業（ANA/BTC共通） / 各DOCK REPAIR DECK</li>
+            <li><span class="badge bg-blue">青・黄・灰色</span> 整備作業全般（ANA/BTC共通） / 各DOCK</li>
+            <li><span class="badge bg-black">黒色（導電性）</span> TANK内作業（ANA/BTC共通） / TOOL ROOM保管</li>
+            <li><span class="badge bg-gray">濃灰色（大）</span> ANA整備作業全般（大物TOOL等） / 各DOCK</li>
+          </ul>
+        </li>
+        <li><b>成田作業場における種類</b>：
+          <ul>
+            <li><span class="badge bg-blue">青色</span> CABIN内以外の整備作業全般 / 各DOCK</li>
+            <li><span class="badge bg-yellow">黄色</span> CABIN内の整備作業 / TOOL ROOM保管</li>
+            <li><span class="badge bg-black">黒色（導電性）</span> TANK内作業 / TOOL ROOM保管</li>
+          </ul>
+        </li>
+        <li><b>管理・借用ルール</b>：
+          <ul>
+            <li>借用時は必ず管理表に「日付・シフト・所属・氏名・使用場所」を記入する。</li>
+            <li>自DOCKのP-パンが不足している場合は他DOCKから借用可（借用者・日付・個数・作業場を明記）。</li>
+            <li>当日中に返却できない場合（長期借用）は、養生テープ等で使用場所等を明記して貼り付けておくこと。</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-26">
+    <h3>整備体制の役割（CDC / DC / ZC） <a href="#item-26" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>チーフドックコントローラー（CDC）</b>：作業場のDC管理整備工程を総括管理、安全管理、連絡窓口、大扉操作許可、施設・部品使用の総括。</li>
+        <li><b>ドックコントローラー（DC）</b>：担当ドックの作業工程管理、投入人員数の調整、安全・整備機材の管理。</li>
+        <li><b>ゾーンコントローラー（ZC）</b>：担当ゾーンの作業工程管理、発生したDEFECTのApproveおよび作業アサイン、記録完了点検（AEへ提出）。自身も作業を実施する。</li>
+        <li><b>作業リーダー</b>：作業グループごとに配置。作業者へ直接の作業指示、作業完遂、自らも整備実施。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-32">
+    <h3>各種スタンド・設備の安全点検要領 <a href="#item-32" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>移動式スタンド（BULK C3 CARGO ACCESS STAND等）</b>：昇降スタンドには不意の降下防止のためメカニカルロックが付いている。STAND上で作業する際は、メカニカルロックが確実に「LOCK POSI（LOCK状態）」に入っていることを必ず目視確認すること。</li>
+        <li><b>CARGO ACCESS STAND</b>：CARGO DOORにSETする際、DOORとSTANDの間に隙間ができないように設置する。機体に接近・近づける時は必ず「監視員」をつけること。</li>
+        <li><b>CRS車</b>：高所作業に該当するため、電動自走操作および作業時は必ず設置されている「安全ベルト」を着用すること。（高さ2.2M, 4.2M, 6.2M）</li>
+        <li><b>格納庫大扉</b>：操作は「CDC」または「CDCの許可を得た者」とし手動操作に限る。大扉の移動範囲内に身体を絶対に入れないこと（特に隙間）。視認性が十分確保できない場合は監視員を配置。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-33">
+    <h3>有機溶剤の手配・管理ルール <a href="#item-33" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>ボトル色分けルール</b>：
+          <ul>
+            <li>ナフサ（機体一般/CPC除去）：<span class="badge bg-blue">水色/青色ボトル</span>（材料番号: 111-019）</li>
+            <li>IPA / イソプロピルアルコール（脱脂/CABIN内消毒）：<span class="badge bg-yellow">黄色ボトル</span>（材料番号: 111-031）</li>
+            <li>MPK / メチルプロピルケトン（脱脂）：<span class="badge bg-red">赤色ボトル</span>（材料番号: 111-130、劇物指定）</li>
+          </ul>
+        </li>
+        <li><b>借用手続き</b>：危険物庫で借用。「借用日」「シフト」「所属」「氏名」「作業場所」「返却予定日」を記入する。員数管理実施。</li>
+        <li><b>その他主要溶剤</b>：ケロシン(111-011), Avi-Sol(111-127), CEE-BEE A-410B(111-090), CEE-BEE A-953(111-117), CEE-BEE A-69M(111-039), ガラスクルー(111-008)。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-34">
+    <h3>化学薬品スプレーおよびテープ類（CA材・補助）の確認 <a href="#item-34" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>スプレー類点検ルール</b>：急冷スプレー、WD-40、STEP21(電装)、ダイチェックスプレー(青/赤/黄)、LPS3(防錆)、LEAK DETECTOR(石鹸水)、ラッカースプレー(合いマーク)、のりはがし(MEK含む)、ジョンソンクルー、青ニススプレー、イカリエアクリーン。一点一様に<b>「SERVICEABLE PARTS TAG」</b>が添付されていること、および有効期限内であることを確認。</li>
+        <li><b>PARTSテープ（CA材: Consumable A材料）</b>：パーマセルテープ(CABIN FLOOR PNL水進入防止)、アルミテープ(応急処置)、両面テープ(CARPET接着)、オアコンテープ(INSULATION BLANKET補修)、ガラステープ(CARGO目張り)、テフロンテープ(CHAFING防止保護)。一点一様に<b>「SERVICEABLE PARTS TAG」</b>が添付されていること。</li>
+        <li><b>整備作業補助テープ</b>：スコッチ、マスキング、養生、ダンプロン、ビニールテープ。整備作業補助テープは<b>運航する機体には装着・残留させてはならない</b>（作業完了時全回収）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-35">
+    <h3>油脂・オイル・専用カート・オイラーの管理基準 <a href="#item-35" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>エンジン/IDGオイル</b>：BP TURBO OIL 2380, ESSO TURBO OIL 2380 (120-052), BP TURBO OIL 2197, ESSO TURBO OIL 2197 (120-212), MOBIL JET OIL II (120-023)。各DOCK油脂庫保管。</li>
+        <li><b>作動油（FLUID）</b>：AERO SHELL FLUID 3 (120-002), FLUID 41 (120-209), FLUID 12 (120-049), Hydraunycoil FH6 AW, SKYDROL LD4。</li>
+        <li><b>グリース類</b>：ASG7(120-088一般), ASG14(120-009 TANK PANEL), ASG16(120-010 CABLE), ASG17(120-011 T/R SHAFT), ASG22(120-195 BEARING), ASG33(120-219 優先使用一般), ROYCO11MS(120-185 GEAR), SHC100(120-231 WHEEL BEARING), ASG33MS(120-236 T/R SHAFT)。最新規程を確認。</li>
+        <li><b>専用カートの誤用防止</b>：SKYDROL LD4、FH6 AW、HYJET V用の専用カートがそれぞれ存在する。作業時は絶対にカートを間違えないこと。中身を確実に確認する。</li>
+        <li><b>オイラーの注意</b>：オイラーは容器の色別に中身が指定されている。補充時は決められた色に従い、使用後は必ず中身を「空」にすること。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-36">
+    <h3>各種保護材・備品・台車の選定 <a href="#item-36" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>ウレタンマット</b>：機体・PARTSの保護用。汚れているものや溶剤・FLUIDが染み込んでいるものがあるため、安易にWING上面やCABIN内に持ち込まないこと。</li>
+        <li><b>漏洩処置材</b>：オイルプロッター（FLUID吸収用紙）、オイルドライ（FLUID吸収粉末）。</li>
+        <li><b>台車の選定</b>：一般運搬は手押し台車。重量物運搬はNo.2 DOCK台車置き場の<b>「重量物専用台車（黄色）」</b>。コンポーネント運搬はNo.2 DOCK配置の<b>「COMPONENT専用台車（白い台車に青ウレタン敷き）」</b>を使用。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-37">
+    <h3>ウエス・手袋・靴カバーの選定基準 <a href="#item-37" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>ウエス各種</b>：
+          <ul>
+            <li>レンタルウエス：一般整備用（クリーニングに出す）。</li>
+            <li>ネルウエス：CABIN内CLEANING用。</li>
+            <li>フィルターウエス：SERVICING時のFLUIDろ過用。</li>
+            <li>白ウエス：PAINT/SEALANT用（使い捨て）。</li>
+            <li><b>オレンジウエス</b>：ENG、APU、FUEL TANK内作業専用。置き忘れ（Engine Fire原因等）防止のためTOOL ROOMで10枚セットで員数管理。使用後は袋に入れて返却。</li>
+          </ul>
+        </li>
+        <li><b>靴カバー</b>：CABIN内やWING上面等、安全靴の汚れを機体側へ付着させないために着用（高圧洗浄時の滑り止め代用）。汚れていないものを使用すること。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-39">
+    <h3>溶剤使用時の遵守事項および応急処置 <a href="#item-39" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>使用上の遵守事項</b>：
+          <ol>
+            <li>容器は使用中でなければかならずフタをすること。</li>
+            <li>長時間、有機溶剤蒸気の吸入をさけること（換気の良い場所で作業、かかった着衣は交換、必要に応じマスク着用）。</li>
+            <li>長時間、素手で溶剤にさわらないこと（ゴーグル・手袋着用）。</li>
+            <li>火気に十分注意すること。（ガラスクルー使用時はTSI 00-25-L076参照）</li>
+          </ol>
+        </li>
+        <li><b>応急処置</b>：眼に入った場合：清浄な水で最低15分洗浄し医師の手当。皮膚付着：水と石鹸で洗う。吸入：新鮮な空気の場所へ移し毛布等で保温・安静、直ちに医師の手当。飲み込み：無理に吐かせず医師の手当（口内は水で洗う）。</li>
+        <li><b>特記事項</b>：MPKは劇物。MPKおよびCEE-BEEはコロガードペイントを侵すためWING, H-STABへ安易に持ち込まない。MPKはプラスチックPARTSも侵すためCABIN内持ち込み注意。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-40">
+    <h3>オイル缶の開封・使用ルール <a href="#item-40" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li>オイル缶（1QT）は、使用する分だけ箱から出して使用すること。</li>
+        <li><b>一度開封したオイル缶は保管棚に戻してはならない</b>（品質維持のため）。未使用分のみ必ず箱の中に戻すこと。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-44">
+    <h3>使用済みウエス・軍手の廃棄・回収分別ルール <a href="#item-44" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>金属製収納BOXへ返却するもの</b>：有機溶剤（FUEL, MPK, IPA等）が付着した可燃物の軍手・ウエス。</li>
+        <li><b>ドラム缶へ廃棄するもの</b>：グリスが多量に付着したもの、シーラANTが付着したもの、金屑が付着したもの（洗濯不可能なため全廃棄）。</li>
+        <li><b>個別廃棄・返却ルート</b>：ネルウエス（羽田）はTOOL ROOMにある洗濯行きBOXへ返却。ネルウエス（成田）は一般ごみへ廃棄。レンタルウエス/軍手でPAINT/SEALANT・切り粉・有害物質等が付着した場合は廃棄処理。オレンジウエスは持ち込み枚数（10枚）が揃っているか員数確認し、袋に入れてTOOL ROOMへ返却。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-45">
+    <h3>余剰溶剤およびオイラーの処理 <a href="#item-45" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li>使用後、ボトル内に余った有機溶剤（MPK, IPA, ナフサ等）は、各DOCKにある<b>「廃油カート」</b>へ廃棄すること。</li>
+        <li>オイラー（注油器）使用後は、必ず中身を<b>「空」</b>にして保管場所へ戻すこと。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-48">
+    <h3>検査の種類と実施体制 <a href="#item-48" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li><b>検査（実質検査）</b>：耐空性に特に影響を及ぼす大修理・改造、または誤作業が運航に重大影響を与える作業について、作業者以外の資格保持者（第三者）が合否判定を行う。</li>
+        <li><b>受領検査</b>：使用者から航空機/装備品を受領する際の受入検査（過去の整備履歴等を入手）。</li>
+        <li><b>領収検査</b>：整備工程委託時、発注要求通り適切に実施されているかをAE/LAE資格者が書類および実質検査で確認する。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="manual-card" id="manual-55">
+    <h3>終業ブリーフィングおよび不具合レビュー <a href="#item-55" class="btn-back">↩️ リストへ戻る</a></h3>
+    <div class="detail-content">
+      <ul>
+        <li>当日の整備進捗報告および未完了作業の次シフト/翌日への申し送り実施。</li>
+        <li><b>不具合事象のレビュー</b>：過去1年以内に発生した主要不具合事象（CAT-I、CAT-II等）の発生原因・対策について周知を受け、日常作業の安全品質向上につなげる。</li>
       </ul>
     </div>
   </div>
@@ -541,21 +854,17 @@
 </div>
 
 <script>
-  // JavaScript: チェック状態の自動保存 & 進捗メーター計算
   document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('.chk');
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
 
-    // 保存されたチェック状態を復元
     checkboxes.forEach((cb, index) => {
-      const saved = localStorage.getItem(`dock_chk_${index}`);
-      if (saved === 'true') {
-        cb.checked = true;
-      }
+      const saved = localStorage.getItem(`dock_full2_chk_${index}`);
+      if (saved === 'true') { cb.checked = true; }
 
       cb.addEventListener('change', () => {
-        localStorage.setItem(`dock_chk_${index}`, cb.checked);
+        localStorage.setItem(`dock_full2_chk_${index}`, cb.checked);
         updateProgress();
       });
     });
@@ -564,7 +873,6 @@
       const total = checkboxes.length;
       const checkedCount = document.querySelectorAll('.chk:checked').length;
       const percent = Math.round((checkedCount / total) * 100);
-
       progressBar.style.width = percent + '%';
       progressText.textContent = percent + '%';
     };
@@ -573,7 +881,7 @@
       if (confirm('すべてのチェックをリセットしますか？')) {
         checkboxes.forEach((cb, index) => {
           cb.checked = false;
-          localStorage.removeItem(`dock_chk_${index}`);
+          localStorage.removeItem(`dock_full2_chk_${index}`);
         });
         updateProgress();
       }
